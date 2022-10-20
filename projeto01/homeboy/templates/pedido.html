@@ -1,7 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h3>Pedido realizado</h3>
+<h3>Realizar pedido</h3>
+
+<div>
+    <div>Nome: {{ produto.nome }} ({{ produto.descricao }}) R${{ produto.preco }}</div>
+    <center>
+        <a class="add-btn" href="{% url 'cliente' %}"><button>Confirmar</button></a>
+    </center>
+</div>
 <table class="produtos_table">
     <thead>
         <tr>

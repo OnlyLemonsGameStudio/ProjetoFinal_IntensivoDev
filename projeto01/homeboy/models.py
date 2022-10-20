@@ -12,8 +12,8 @@ class Produto(models.Model):
         return "{} ({}) R${}".format(self.nome, self.descricao, self.preco)
 
 class Pedido(models.Model):
-    none = None
-
-class ItemPedido(models.Model):
     produto = models.ForeignKey(Produto, on_delete=models.SET_NULL, null=True)
-    pedido = models.ForeignKey(Pedido, on_delete=models.CASCADE)
+
+#class ItemPedido(models.Model):
+#    produto = models.ForeignKey(Produto, on_delete=models.SET_NULL, null=True)
+#    pedido = models.ForeignKey(Pedido, on_delete=models.CASCADE)
