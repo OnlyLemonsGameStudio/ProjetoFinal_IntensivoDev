@@ -1,0 +1,63 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        {% block title %}
+        <title>Homeboy - Início</title>
+        {% endblock %}
+
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    </head>
+    <body>
+        <div class="card">
+            <div class="card-body">
+                <div class="box">
+                    <table width="100%">
+                        <tr>
+                            <td width="50%">
+                                <a href="{% url 'home' %}"><img class="logo" src="{% static 'img/homeboy.png' %}" align="left"></a>
+                            </td>
+                            <td width="50%" align="right">
+                                Olá, usuário
+                                <button type="button">Sair</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <br>
+        <table>
+            <tr>
+                <td width="250px">
+                    <div class="sidebar">
+                        <table class="options">
+                            <tr>
+                                <td class="icon">Icon1</td>
+                                <td><a href="{% url 'pedido' %}">Pedido</a></td>
+                            </tr>
+                            <tr>
+                                <td class="icon">Icon2</td>
+                                <td>Menu 2</td>
+                            </tr>
+                            <tr>
+                                <td class="icon">Icon3</td>
+                                <td>Menu 3</td>
+                            </tr>
+                            
+                        </table>
+                    </div>
+                </td>
+                <td>
+                    {% block content %}
+                    {% endblock%}
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>

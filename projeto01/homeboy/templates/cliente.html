@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+<title>Homeboy - Cliente</title>
+{% endblock %}
+
+{% block content %}
+<h3>Fazer pedido</h3>
+<form action="{% url 'pedido' %}" method="POST">{% csrf_token %}
+    <table class="produtos_table">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Preço</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for produto in produtos %}
+            <tr>
+                <td>{{ produto.nome }}</td>
+                <td>{{ produto.descricao }}</td>
+                <td>R${{ produto.preco }}</td>
+                <td><a class="add-btn" href="{% url 'add_item' produto.id %}"><button>Adicionar ao pedido</button></a></td>
+            </tr>
+            
+            {% endfor %}
+        </tbody>
+    </table>
+    <center>
+        <button type="submit">Fazer pedido</button>
+    </center>
+</form>
+{% endblock %}

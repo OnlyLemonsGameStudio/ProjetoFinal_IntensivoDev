@@ -1,0 +1,31 @@
+body {
+    background-color: #e0e7ebff;
+  }
+
+.logo {
+    background-color: transparent;
+}
+
+.sidebar {
+    position: absolute;
+    top: 80px;
+    bottom: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #c2d0d6ff;
+}
+
+.icon {
+    width: 50px;
+    text-align: center;
+}
+
+table.options tr {
+    height: 55px;
+}
+
+.produtos_table {
+    width: 100%;
+    background-color: #c2d0d6ff;
+}

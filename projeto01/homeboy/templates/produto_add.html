@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3>Adicionar produto</h3>
+<form action="{% url 'produto_add' %}" method="POST">{% csrf_token %}
+    <span>Nome</span>
+    <input type="text" placeholder="" name="nome">
+    <br>
+    <span>Descrição</span>
+    <input type="text" placeholder="Descrição do produto" name="descricao">
+    <br>
+    <span>Preço</span>
+    <input type="number" step="0.01" placeholder="00.00" name="preco">
+    <center>
+        <button type="submit">Salvar</button>
+        <a href="{% url 'loja' %}"><button>Cancelar</button></a>
+    </center>
+</form>
+{% endblock %}
