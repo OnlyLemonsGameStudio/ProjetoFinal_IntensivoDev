@@ -2,7 +2,7 @@ from django.contrib import messages
 from django.shortcuts import redirect, render
 from django.urls import reverse
 
-from .models import Produto, Pedido, ItemPedido
+from .models import Produto, Pedido
 from .forms import ProdutoForm
 
 def home(request):
@@ -15,30 +15,6 @@ def cliente(request):
             'produtos': produtos,
             }
         return render(request, "cliente.html", context)
-    
-
-def pedido(request):
-    pedido = Pedido.objects.all()
-    #produtos = pedido.get_itens()
-    context = {
-        'pedidos': pedido,
-        }
-    return render(request, "pedido.html", context)
-
-def add_item(request, item_pk):
-    produto = Produto.objects.get(pk=item_pk)
-    pedido_item, status = ItemPedido.objects.get_or_create(produto=produto)
-    pedido_, status = Pedido.objects.get_or_create()
-    pedido_.itens.add(pedido_item)
-    pedido_.save()
-    return redirect('pedido')
-
-def delete_item(request, item_pk):
-    item_to_delete = ItemPedido.objects.filter(pk=item_pk)
-    if item_to_delete.exists():
-        item_to_delete[0].delete()
-        messages.info(request, "Item deletado")
-    return redirect('pedido')
 
 def entregador(request):
     return render(request, "entregador.html")

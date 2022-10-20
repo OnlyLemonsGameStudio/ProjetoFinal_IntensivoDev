@@ -6,42 +6,38 @@
 {% endblock %}
 
 {% block content %}
-<div class="card">
-    <div class="car-body">
-        <h4>Produtos</h4>
-        <hr>
-        <table class="produtos_table">
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>Descrição</th>
-                    <th>Preço</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for produto in produtos %}
-                <tr>
-                    <td>{{ produto.nome }}</td>
-                    <td>{{ produto.descricao }}</td>
-                    <td>R${{ produto.preco }}</td>
-                    <td>
-                        <a class="edit-btn" href="{% url 'produto_edit' produto.id %}"><button>Editar</button></a>
-                        <a class="delete-btn" href="{% url 'produto_delete' produto.id %}">
-                            <button onclick="return confirm('Realmente quer excluir esse produto?')">Excluir</button>
-                        </a>
-                    </td>
-                </tr>
-                {% empty %}
-                <tr>
-                    <td colspan="3"> Nada aqui</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-        <center>
-            <a class="add-btn" href="{% url 'produto_add' %}"><button>Adicionar produto</button></a>
-        </center>
-    </div>
-</div>
+<h4>Produtos</h4>
+<hr>
+<table class="produtos_table">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Preço</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for produto in produtos %}
+        <tr>
+            <td>{{ produto.nome }}</td>
+            <td>{{ produto.descricao }}</td>
+            <td>R${{ produto.preco }}</td>
+            <td>
+                <a class="edit-btn" href="{% url 'produto_edit' produto.id %}"><button>Editar</button></a>
+                <a class="delete-btn" href="{% url 'produto_delete' produto.id %}">
+                    <button onclick="return confirm('Realmente quer excluir esse produto?')">Excluir</button>
+                </a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="3"> Nada aqui</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<center>
+    <a class="add-btn" href="{% url 'produto_add' %}"><button>Adicionar produto</button></a>
+</center>
 {% endblock %}
